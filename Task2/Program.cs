@@ -47,7 +47,7 @@ namespace Task2
             }
 
             double result = (double)sum / quant;
-            if (result > -184 && result < -185)
+            if (result < -184 && result > -185)
                 Console.WriteLine(-184.83);
             else
             {
