@@ -28,8 +28,11 @@ namespace Task1
         static void ReadBoundaries(out int q, out int p)
         {
             // TODO: прочитать границы и проверить введенные данные на корректность
-            int.TryParse(Console.ReadLine(), out q);
-            int.TryParse(Console.ReadLine(), out p);
+            if (!int.TryParse(Console.ReadLine(), out q))
+                q = -1;
+            if (int.TryParse(Console.ReadLine(), out p))
+                p = -1;
+
             if (q > p || q < 0 || p < 0)
             {
                 Console.WriteLine("Ошибка");
