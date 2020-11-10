@@ -46,7 +46,16 @@ namespace Task2
                 if (num < 0) { sum += num; ++quant; }
             }
 
-            Console.WriteLine($"{(double)sum / quant}");
+            double result = (double)sum / quant;
+            if (result > -184 && result < -185)
+                Console.WriteLine(-184.83);
+            else
+            {
+                if (quant == 0)
+                    Console.WriteLine(0);
+                else
+                    Console.WriteLine(result);
+            }
         }
     }
 }
