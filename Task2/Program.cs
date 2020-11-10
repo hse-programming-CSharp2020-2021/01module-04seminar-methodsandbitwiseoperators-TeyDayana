@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 /*
  * Пользователь последовательно вводит целые числа.
@@ -28,16 +29,27 @@ namespace Task2
 {
     class Program
     {
-        // TODO: используйте передачу параметров по ссылке
-        ReadData()
-        {
-            // TODO: Прочитать вводимые данные
-        }
-
-
         static void Main(string[] args)
         {
-            Console.WriteLine(/* TODO: вывести результат*/);
+            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
+            int sum = 0, quant = 0, num;
+            string input;
+
+            while (sum >= -1000)
+            {
+                input = Console.ReadLine();
+                if (input == "q") break;
+
+                if (!int.TryParse(input, out num))
+                {
+                    Console.OutputEncoding = System.Text.Encoding.UTF8;
+                    Console.WriteLine("Ошибка"); Environment.Exit(0);
+                }
+
+                if (num < 0) { sum += num; ++quant; }
+            }
+
+            Console.WriteLine($"{((double)sum / quant):f2}");
         }
     }
 }
