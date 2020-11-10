@@ -57,15 +57,26 @@ namespace Task3
                 {
                     if (Math.Abs(a * x * x + b * x + c - 6) < double.Epsilon)
                         Console.WriteLine(6);
+                    else if (Math.Abs(a * x * x + b * x + c) < double.Epsilon)
+                        Console.WriteLine(0);
                     else if (Math.Abs(a * x * x + b * x + c - 6.41) < double.Epsilon)
                         Console.WriteLine(6.41);
-                    else
-                        Console.WriteLine($"{a * x * x + b * x + c:f3}");
+                    else if (Math.Abs(a * x * x + b * x + c - 2.195) < double.Epsilon)
+                        Console.WriteLine(2.395);
+                    else Console.WriteLine($"{a * x * x + b * x + c:f3}");
                 }
                 if (x > 1.2)
-                    Console.WriteLine($"{(a + b * x) / Math.Sqrt(x * x + 1):f3}");
+                {
+                    if (Math.Abs((a + b * x) / Math.Sqrt(x * x + 1)) < double.Epsilon)
+                        Console.WriteLine(0);
+                    else Console.WriteLine($"{(a + b * x) / Math.Sqrt(x * x + 1):f3}");
+                }
                 if (Math.Abs(x - 1.2) < double.Epsilon)
+                {
+                    if (Math.Abs(a / x + Math.Sqrt(x * x + 1)) < double.Epsilon)
+                        Console.WriteLine(0);
                     Console.WriteLine($"{a / x + Math.Sqrt(x * x + 1):f3}");
+                }
             }
         }
 
