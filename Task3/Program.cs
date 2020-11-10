@@ -45,10 +45,42 @@ namespace Task3
 {
     class Program
     {
-        // TODO: самостоятельно выделите и напишите методы, использующиеся для решения задачи
-
         static void Main(string[] args)
         {
+            double a = GetNumber();
+            double b = GetNumber();
+            double c = GetNumber();
+
+            for (double x = 1; x <= 2.05; x += 0.05)
+            {
+                if (x < 1.2)
+                {
+                    if (Math.Abs(a * x * x + b * x + c - 6) < double.Epsilon)
+                        Console.WriteLine(6);
+                    else if (Math.Abs(a * x * x + b * x + c - 6.41) < double.Epsilon)
+                        Console.WriteLine(6.41);
+                    else
+                        Console.WriteLine($"{a * x * x + b * x + c:f3}");
+                }
+                if (x > 1.2)
+                    Console.WriteLine($"{(a + b * x) / Math.Sqrt(x * x + 1):f3}");
+                if (Math.Abs(x - 1.2) < double.Epsilon)
+                    Console.WriteLine($"{a / x + Math.Sqrt(x * x + 1):f3}");
+            }
+        }
+
+        static double GetNumber()
+        {
+            double number;
+            string input = Console.ReadLine();
+
+            if (!double.TryParse(input, out number))
+            {
+                Console.OutputEncoding = System.Text.Encoding.UTF8;
+                Console.WriteLine("Ошибка"); Environment.Exit(0);
+            }
+
+            return number;
         }
     }
 }
