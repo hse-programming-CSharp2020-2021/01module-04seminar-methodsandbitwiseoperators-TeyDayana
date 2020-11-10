@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 /*
  * Пользователь вводит неотрицательные целые (int) числа q и p, такие, что q <= p.
@@ -27,12 +28,11 @@ namespace Task1
         // TODO: использовать передачу параметров по ссылке
         static void ReadBoundaries(out int q, out int p)
         {
-            // TODO: прочитать границы и проверить введенные данные на корректность
-            if (!int.TryParse(Console.ReadLine(), out q))
-                q = -1;
-            if (int.TryParse(Console.ReadLine(), out p))
-                p = -1;
+            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
 
+            // TODO: прочитать границы и проверить введенные данные на корректность
+            int.TryParse(Console.ReadLine(), out q);
+            int.TryParse(Console.ReadLine(), out p);
             if (q > p || q < 0 || p < 0)
             {
                 Console.WriteLine("Ошибка");
