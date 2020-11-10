@@ -31,7 +31,6 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
             int sum = 0, quant = 0, num;
             string input;
 
@@ -49,7 +48,7 @@ namespace Task2
                 if (num < 0) { sum += num; ++quant; }
             }
 
-            Console.WriteLine($"{((double)sum / quant):f2}");
+            Console.WriteLine($"{(double)sum / quant}");
         }
     }
 }
