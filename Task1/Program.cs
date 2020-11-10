@@ -35,7 +35,7 @@ namespace Task1
             int.TryParse(Console.ReadLine(), out p);
             if (q > p || q < 0 || p < 0)
             {
-                Console.OutputEncoding = System.Text.Encoding.GetEncoding(1251);
+                Console.OutputEncoding = System.Text.Encoding.UTF8;
                 Console.WriteLine("Ошибка");
                 Environment.Exit(0);
             }
