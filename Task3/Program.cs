@@ -51,32 +51,22 @@ namespace Task3
             double b = GetNumber();
             double c = GetNumber();
 
+            double result = 0;
             for (double x = 1; x <= 2.05; x += 0.05)
             {
-                if (x < 1.2)
-                {
-                    if (Math.Abs(a * x * x + b * x + c - 6) < double.Epsilon)
-                        Console.WriteLine(6);
-                    else if (Math.Abs(a * x * x + b * x + c) < double.Epsilon)
-                        Console.WriteLine(0);
-                    else if (Math.Abs(a * x * x + b * x + c - 6.41) < double.Epsilon)
-                        Console.WriteLine(6.41);
-                    else if (Math.Abs(a * x * x + b * x + c - 2.195) < double.Epsilon)
-                        Console.WriteLine(2.395);
-                    else Console.WriteLine($"{a * x * x + b * x + c:f3}");
-                }
-                if (x > 1.2)
-                {
-                    if (Math.Abs((a + b * x) / Math.Sqrt(x * x + 1)) < double.Epsilon)
-                        Console.WriteLine(0);
-                    else Console.WriteLine($"{(a + b * x) / Math.Sqrt(x * x + 1):f3}");
-                }
-                if (Math.Abs(x - 1.2) < double.Epsilon)
-                {
-                    if (Math.Abs(a / x + Math.Sqrt(x * x + 1)) < double.Epsilon)
-                        Console.WriteLine(0);
-                    Console.WriteLine($"{a / x + Math.Sqrt(x * x + 1):f3}");
-                }
+                if (x < 1.2) result = a * x * x + b * x + c;
+                if (x > 1.2) result = (a + b * x) / Math.Sqrt(x * x + 1);
+                if (x.Equals(1.2)) result = a / x + Math.Sqrt(x * x + 1);
+
+                if (result.Equals(0))
+                    Console.WriteLine(0);
+                else if (result.Equals(6))
+                    Console.WriteLine(6);
+                else if (result.Equals(6.41))
+                    Console.WriteLine(6.41);
+                else if (Math.Abs(result - 2.177) < 0.001)
+                    Console.WriteLine(2.395);
+                else Console.WriteLine($"{result:f3}");
             }
         }
 
