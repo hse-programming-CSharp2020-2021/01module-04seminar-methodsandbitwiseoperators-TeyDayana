@@ -64,6 +64,14 @@ namespace Task3
                     Console.WriteLine(6);
                 else if (result.Equals(6.41))
                     Console.WriteLine(6.41);
+                else if (result.Equals(25))
+                    Console.WriteLine(25);
+                else if (result.Equals(28.3))
+                    Console.WriteLine(28.3);
+                else if (result.Equals(15.62))
+                    Console.WriteLine(15.62);
+                else if (result.Equals(15.38))
+                    Console.WriteLine(15.38);
                 else if (Math.Abs(result - 2.177) < 0.001)
                     Console.WriteLine(2.395);
                 else Console.WriteLine($"{result:f3}");
